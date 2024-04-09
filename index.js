@@ -6,10 +6,10 @@ const app = express();
 
 app.use(express.json());
 
+const mongoDBUri = process.env.MONGO_DB_URI;
+
 mongoose
-  .connect(
-    "mongodb+srv://sikomuro:DwFBOgSLklAOrzCL@cluster0.xzwzefc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
-  )
+  .connect(mongoDBUri)
   .then(() => {
     console.log("Connected to db!");
 
